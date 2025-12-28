@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+    color: #000;
+}
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+#sidebar {
+    width: 220px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+}
+#sidebar h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar-nav li {
+    margin: 12px 0;
+}
+.sidebar-nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+.sidebar-nav a:hover {
+    color: #007BFF;
+}
+#dashboard-content {
+    flex: 1;
+    padding: 30px;
+}
+#dashboard h2 {
+    margin-bottom: 20px;
+}
+.user-info {
+    text-align: right;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+.user-info span {
+    font-weight: bold;
+}
+.logout-btn {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007BFF;
+    padding: 5px 12px;
+    border-radius: 4px;
+}
+.logout-btn:hover {
+    background-color: #0056b3;
+}
+.dashboard-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 50px 70px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+.card h4 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+.card p {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+}
