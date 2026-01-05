@@ -4,78 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Signup - RetailFlow</title>
+    <link rel="stylesheet" href="signup.css">
     <script src="../Controller/JS/checkEmail.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        #signup-section {
-            background-color: #ffffff;
-            padding: 25px;
-            width: 400px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #000;
-        }
-
-        form label {
-            display: block;
-            margin-bottom: 5px;
-            color: #000;
-        }
-
-        form input[type="text"],
-        form input[type="password"],
-        form input[type="file"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            border: 1px solid #007BFF;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        #erroremail {
-            color: red;
-            font-size: 12px;
-        }
-
-        .login-link {
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .login-link a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
 
@@ -108,7 +38,7 @@
 
     <?php
     if (isset($_SESSION["error"])) {
-        echo '<p style="color:red; text-align:center;">' . $_SESSION["error"] . '</p>';
+        echo '<p class="error-msg">' . $_SESSION["error"] . '</p>';
         unset($_SESSION["error"]);
     }
     ?>
