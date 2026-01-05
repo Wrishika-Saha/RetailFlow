@@ -1,0 +1,138 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Layout */
+body {
+    display: flex;
+    min-height: 100vh;
+    background: #f2f6ff;
+    color: #333;
+}
+
+/* Sidebar */
+#sidebar {
+    width: 220px;
+    background: #ffffff;
+    border-right: 1px solid #6f4e37;
+    padding: 20px;
+}
+
+#sidebar h3 {
+    text-align: center;
+    color: #6f4e37;
+    margin-bottom: 20px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin: 10px 0;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: #0b5ed7;
+}
+
+/* Main Content */
+#dashboard-content {
+    flex: 1;
+    padding: 25px;
+}
+
+/* User Info */
+.user-info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logout-btn {
+    margin-left: 15px;
+    background: #6f4e37;
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+/* Headings */
+h2 {
+    margin-bottom: 15px;
+    color: #0b5ed7;
+}
+
+/* Search */
+.search-form {
+    margin-bottom: 15px;
+}
+
+.search-form input {
+    padding: 6px;
+}
+
+.search-form button {
+    padding: 6px 10px;
+    background: #0b5ed7;
+    color: #fff;
+    border: none;
+}
+
+/* Cart Button */
+.view-cart-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    background: #6f4e37;
+    color: #fff;
+    padding: 6px 10px;
+    text-decoration: none;
+}
+
+/* Products */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.product-card {
+    width: 200px;
+    background: #fff;
+    border: 1px solid #cfe2ff;
+    padding: 10px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+}
+
+.price {
+    color: #6f4e37;
+    font-weight: bold;
+}
+
+.view-details-btn {
+    display: inline-block;
+    margin-top: 5px;
+    background: #0b5ed7;
+    color: #fff;
+    padding: 5px 8px;
+    text-decoration: none;
+}
