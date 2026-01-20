@@ -163,7 +163,7 @@ body {
   background: #1d4ed8;
 }
 
-/* ===== Responsive ===== */
+
 @media (max-width: 900px) {
   #sidebar {
     position: relative;
@@ -181,3 +181,4 @@ body {
     right: 10px;
   }
 }
+
