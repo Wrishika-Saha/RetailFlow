@@ -2,9 +2,7 @@
 session_start();
 include '../Model/DatabaseConnection.php';
 
-/* ===============================
-   ✅ ROLE CHECK (SELLER OR ADMIN)
-   =============================== */
+
 if (
     !isset($_SESSION['user']) ||
     !in_array($_SESSION['user']['role'], ['seller', 'admin'])
@@ -16,9 +14,7 @@ if (
 $db = new DatabaseConnection();
 $conn = $db->openConnection();
 
-/* ===============================
-   ✅ GET PRODUCT ID
-   =============================== */
+
 if (!isset($_GET['id'])) {
     die("Product ID missing.");
 }
@@ -28,9 +24,7 @@ if ($id <= 0) {
     die("Invalid Product ID.");
 }
 
-/* ===============================
-   ✅ FETCH PRODUCT
-   =============================== */
+
 $stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -42,9 +36,8 @@ if (!$product) {
     die("Product not found.");
 }
 
-/* ===============================
-   ✅ HANDLE UPDATE
-   =============================== */
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $title = trim($_POST['title'] ?? '');
@@ -57,18 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Invalid input. Please fill all fields correctly.");
     }
 
-    /* ===============================
-       ✅ REDIRECT BACK (IMPORTANT)
-       =============================== */
+
+   
     $redirectTo =
         $_POST['redirect_to']
         ?? $_SERVER['HTTP_REFERER']
         ?? '../View/admin_dashboard.php';
 
-    /* ===============================
-       ✅ IMAGE HANDLING
-       =============================== */
-    $imageName = $product['image']; // keep old image
+
+   
+    $imageName = $product['image']; 
 
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
 
@@ -87,22 +78,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             die("Failed to upload image.");
         }
 
-        // delete old image
+        
         if (!empty($product['image']) && file_exists($uploadDir . $product['image'])) {
             @unlink($uploadDir . $product['image']);
         }
     }
 
-    /* ===============================
-       ✅ UPDATE QUERY
-       =============================== */
+   
     $update = $conn->prepare(
         "UPDATE products
          SET title = ?, category = ?, price = ?, stock = ?, description = ?, image = ?
          WHERE id = ?"
     );
 
-    // s s d i s s i
+    
     $update->bind_param(
         "ssdissi",
         $title,
@@ -122,3 +111,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
