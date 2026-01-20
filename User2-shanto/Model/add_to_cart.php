@@ -16,7 +16,7 @@ if (isset($_POST['product_id'], $_POST['quantity'])) {
         exit();
     }
 
-    
+   
     $stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
     $stmt->bind_param("i", $product_id);
     $stmt->execute();
@@ -25,7 +25,7 @@ if (isset($_POST['product_id'], $_POST['quantity'])) {
     $stmt->close();
 
     if ($product) {
-        
+       
         if (!isset($_SESSION['cart'])) {
             $_SESSION['cart'] = [];
         }
