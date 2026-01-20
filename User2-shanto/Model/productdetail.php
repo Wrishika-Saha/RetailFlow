@@ -1,16 +1,15 @@
 <?php
-session_start();  // Start session
+session_start();  
 
-// Include database connection
 include '../Model/DatabaseConnection.php';
 $db = new DatabaseConnection();
 $conn = $db->openConnection();
 
-// Check if product ID is passed in the URL
-if (isset($_GET['id'])) {
-    $product_id = intval($_GET['id']); // sanitize input
 
-    // Prepare the query to fetch product details by ID
+if (isset($_GET['id'])) {
+    $product_id = intval($_GET['id']); 
+
+ 
     $stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
     $stmt->bind_param("i", $product_id);
     $stmt->execute();
@@ -18,7 +17,7 @@ if (isset($_GET['id'])) {
     $product = $result->fetch_assoc();
     $stmt->close();
 
-    // Check if the product exists
+    
     if (!$product) {
         echo "Product not found.";
         $db->closeConnection($conn);
@@ -30,7 +29,7 @@ if (isset($_GET['id'])) {
     exit();
 }
 
-// You can now use $product array to display details
+
 
 $db->closeConnection($conn);
 ?>

@@ -1,24 +1,16 @@
 <?php
 session_start();
 
-// Include database connection
 include '../Model/DatabaseConnection.php';
 $db = new DatabaseConnection();
 $conn = $db->openConnection();
-/*
-// Check if the user is logged in
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');  // Redirect to login if not logged in
-    exit();
-}*/
 
-// Check if the order was successfully placed
 if (!isset($_SESSION['order_id'])) {
     echo "<script>alert('Order not found.'); window.location='index.php';</script>";
     exit();
 }
 
-// Optional: Fetch order details from database
+
 $order_id = $_SESSION['order_id'];
 $order_details = [];
 $stmt = $conn->prepare("SELECT * FROM orders WHERE id = ?");
@@ -42,7 +34,7 @@ $db->closeConnection($conn);
     <link rel="stylesheet" href="order_success.css">
 </head>
 <body>
-    <?php include('header.php'); ?> <!-- Include header -->
+    <?php include('header.php'); ?> 
 
     <section id="order-success">
         <h1>Thank You for Your Order!</h1>
@@ -58,6 +50,6 @@ $db->closeConnection($conn);
         <a href="customer_dashboard.php" class="btn-back">Back to Dashboard</a>
     </section>
 
-    <?php include('footer.php'); ?> <!-- Include footer -->
+    <?php include('footer.php'); ?> <
 </body>
 </html>

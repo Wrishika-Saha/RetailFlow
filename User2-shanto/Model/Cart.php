@@ -1,8 +1,4 @@
 <?php
-/**
- * Cart Model - Handle shopping cart operations
- */
-
 class Cart {
     private $conn;
     private $table = 'cart';
@@ -11,9 +7,9 @@ class Cart {
         $this->conn = $database->connect();
     }
 
-    // Add item to cart
+    
     public function addToCart($user_id, $product_id, $quantity) {
-        // Check if item already in cart
+        
         $stmt = $this->conn->prepare("SELECT id, quantity FROM " . $this->table . " WHERE user_id = ? AND product_id = ?");
         $stmt->bind_param("ii", $user_id, $product_id);
         $stmt->execute();
@@ -28,7 +24,7 @@ class Cart {
 
         $stmt->close();
 
-        // Add new item
+        
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table . " (user_id, product_id, quantity) VALUES (?, ?, ?)");
         $stmt->bind_param("iii", $user_id, $product_id, $quantity);
 
@@ -41,7 +37,7 @@ class Cart {
         }
     }
 
-    // Get cart items
+    
     public function getCartItems($user_id) {
         $query = "SELECT c.id, c.quantity, p.id as product_id, p.title, p.price, p.image, p.stock FROM " . $this->table . " c 
                   JOIN products p ON c.product_id = p.id 
@@ -57,7 +53,7 @@ class Cart {
         return $items;
     }
 
-    // Update cart item quantity
+    
     public function updateCartItem($cart_id, $quantity) {
         if ($quantity <= 0) {
             return $this->removeFromCart($cart_id);
@@ -75,7 +71,7 @@ class Cart {
         }
     }
 
-    // Remove item from cart
+    
     public function removeFromCart($cart_id) {
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table . " WHERE id = ?");
         $stmt->bind_param("i", $cart_id);
@@ -89,7 +85,7 @@ class Cart {
         }
     }
 
-    // Clear cart
+    
     public function clearCart($user_id) {
         $stmt = $this->conn->prepare("DELETE FROM " . $this->table . " WHERE user_id = ?");
         $stmt->bind_param("i", $user_id);
@@ -103,7 +99,7 @@ class Cart {
         }
     }
 
-    // Get cart total
+    
     public function getCartTotal($user_id) {
         $stmt = $this->conn->prepare("SELECT SUM(p.price * c.quantity) as total FROM " . $this->table . " c 
                                        JOIN products p ON c.product_id = p.id 

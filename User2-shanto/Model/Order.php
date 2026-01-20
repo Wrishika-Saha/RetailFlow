@@ -1,8 +1,4 @@
 <?php
-/**
- * Order Model - Handle order management
- */
-
 class Order {
     private $conn;
     private $table = 'orders';
@@ -12,22 +8,22 @@ class Order {
         $this->conn = $database->connect();
     }
 
-    // ✅ Create order (matches your table: order_date, payment_method)
+    
     public function createOrder($user_id, $total_amount, $payment_method = null, $status = 'pending') {
 
-        // ✅ Validate status (because it's ENUM in DB)
+        
         $allowed = ['pending', 'completed', 'shipped'];
         if (!in_array($status, $allowed)) {
             $status = 'pending';
         }
 
-        // ✅ Insert using correct columns (NO created_at)
+        
         $stmt = $this->conn->prepare(
             "INSERT INTO {$this->table} (user_id, total_amount, status, payment_method, order_date)
              VALUES (?, ?, ?, ?, NOW())"
         );
 
-        // user_id (i), total_amount (d), status (s), payment_method (s)
+      
         $stmt->bind_param("idss", $user_id, $total_amount, $status, $payment_method);
 
         if ($stmt->execute()) {
@@ -41,7 +37,7 @@ class Order {
         }
     }
 
-    // ✅ Add order items
+   
     public function addOrderItems($order_id, $cart_items) {
 
         $stmt = $this->conn->prepare(
@@ -62,7 +58,7 @@ class Order {
         return ['success' => true];
     }
 
-    // ✅ Get user orders (use order_date, NOT created_at)
+    
     public function getUserOrders($user_id) {
         $query = "SELECT * FROM {$this->table} WHERE user_id = ? ORDER BY order_date DESC";
         $stmt = $this->conn->prepare($query);
@@ -74,7 +70,7 @@ class Order {
         return $orders;
     }
 
-    // ✅ Get order details (product image is filename, fine)
+    
     public function getOrderDetails($order_id) {
         $query = "SELECT oi.*, p.title, p.image
                   FROM {$this->table_items} oi
@@ -90,7 +86,7 @@ class Order {
         return $items;
     }
 
-    // ✅ Get order by ID (admin view)
+    
     public function getOrderById($id) {
         $query = "SELECT o.*, u.name, u.email
                   FROM {$this->table} o
@@ -112,7 +108,7 @@ class Order {
         return null;
     }
 
-    // ✅ Update order status (validate enum)
+  
     public function updateOrderStatus($order_id, $status) {
 
         $allowed = ['pending', 'completed', 'shipped'];
@@ -133,7 +129,7 @@ class Order {
         }
     }
 
-    // ✅ Get all orders (admin)
+    
     public function getAllOrders() {
         $query = "SELECT o.*, u.name, u.email
                   FROM {$this->table} o

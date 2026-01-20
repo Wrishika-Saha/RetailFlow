@@ -5,16 +5,13 @@ include '../Model/DatabaseConnection.php';
 $db = new DatabaseConnection();
 $conn = $db->openConnection();
 
-/* ✅ Admin only */
+
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
     header("Location: ../View/login.php");
     exit();
 }
 
-/* =====================
-   ✅ DELETE ORDER
-   delete order_items first, then orders
-===================== */
+
 if (isset($_GET['delete_id'])) {
     $delete_id = (int)$_GET['delete_id'];
 
@@ -32,9 +29,7 @@ if (isset($_GET['delete_id'])) {
     exit();
 }
 
-/* =====================
-   ✅ UPDATE ORDER STATUS
-===================== */
+
 if (isset($_POST['update_status'])) {
     $order_id = (int)($_POST['order_id'] ?? 0);
     $status = $_POST['status'] ?? 'pending';
@@ -53,10 +48,6 @@ if (isset($_POST['update_status'])) {
     exit();
 }
 
-/* =====================
-   ✅ FETCH ORDERS + ITEMS + PRODUCT NAME
-   This returns multiple rows for same order if multiple items exist
-===================== */
 $sql = "
 SELECT 
     o.id AS order_id,

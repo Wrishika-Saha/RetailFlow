@@ -1,7 +1,5 @@
 <?php
-/**
- * Product Model - Handle product management
- */
+
 
 class Product {
     private $conn;
@@ -11,7 +9,7 @@ class Product {
         $this->conn = $database->connect();
     }
 
-    // ✅ Add product (seller_id will be saved here)
+    
     public function addProduct($seller_id, $title, $category, $price, $stock, $description, $image) {
         $stmt = $this->conn->prepare(
             "INSERT INTO " . $this->table . "
@@ -31,7 +29,6 @@ class Product {
         return ['success' => false, 'message' => 'Failed to add product: ' . $error];
     }
 
-    // Get seller's products
     public function getSellerProducts($seller_id) {
         $stmt = $this->conn->prepare(
             "SELECT * FROM " . $this->table . " WHERE seller_id = ? ORDER BY created_at DESC"
