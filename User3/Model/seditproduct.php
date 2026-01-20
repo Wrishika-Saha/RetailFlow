@@ -6,7 +6,7 @@ include '../Model/DatabaseConnection.php';
 $db = new DatabaseConnection();
 $conn = $db->openConnection();
 
-// Check if the user is logged in and is a seller
+
 if (!isset($_SESSION['isLoggedIn']) || $_SESSION['user']['role'] !== 'seller') {
     header("Location: ../View/login.php");
     exit();
@@ -19,7 +19,7 @@ if (!isset($_GET['id'])) {
 
 $product_id = $_GET['id'];
 
-// Fetch product for this seller only
+
 $stmt = $conn->prepare("SELECT * FROM products WHERE id = ? AND seller_id = ?");
 $stmt->bind_param("ii", $product_id, $_SESSION['user']['id']);
 $stmt->execute();
@@ -66,3 +66,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $db->closeConnection($conn);
 ?>
+
