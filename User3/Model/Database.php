@@ -1,7 +1,4 @@
 <?php
-/**
- * Database Connection & Configuration
- */
 
 class Database {
     private $host = 'localhost';
@@ -10,7 +7,7 @@ class Database {
     private $password = '';
     private $conn;
 
-    // Connect to database
+   
     public function connect() {
         $this->conn = new mysqli($this->host, $this->user, $this->password, $this->db_name);
         
@@ -22,9 +19,10 @@ class Database {
         return $this->conn;
     }
 
-    // Get connection
+   
     public function getConnection() {
         return $this->conn;
     }
 }
 ?>
+
