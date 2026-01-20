@@ -12,7 +12,7 @@ require_once __DIR__ . '/../Model/Product.php';
 $db = new Database();
 $product = new Product($db);
 
-// ✅ seller_id must come from session
+
 $seller_id = (int)($_SESSION['user']['id'] ?? 0);
 
 if ($seller_id <= 0) {
@@ -24,21 +24,21 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Form data
+
 $title = trim($_POST['title'] ?? '');
 $category = trim($_POST['category'] ?? '');
 $price = (float)($_POST['price'] ?? 0);
 $stock = (int)($_POST['stock'] ?? 0);
 $description = trim($_POST['description'] ?? '');
 
-// Basic validation
+
 if ($title === '' || $category === '' || $price <= 0 || $stock < 0 || $description === '') {
     $_SESSION['error'] = "Please fill all fields correctly.";
     header("Location: ../seller/add-product.php");
     exit;
 }
 
-// Image validation
+
 if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
     $_SESSION['error'] = "Image upload failed.";
     header("Location: ../seller/add-product.php");
@@ -46,7 +46,7 @@ if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
 }
 
 $allowedExt = ['jpg', 'jpeg', 'png', 'gif'];
-$maxSize = 5 * 1024 * 1024; // 5MB
+$maxSize = 5 * 1024 * 1024; 
 
 $fileTmp = $_FILES['image']['tmp_name'];
 $fileName = $_FILES['image']['name'];
@@ -66,13 +66,13 @@ if ($fileSize > $maxSize) {
     exit;
 }
 
-// Upload location
+
 $uploadDir = __DIR__ . '/../uploads/products/';
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0777, true);
 }
 
-// Save filename only (like your screenshot: rice.jpg / oil.jpg style)
+
 $newFileName = time() . "_" . preg_replace("/[^a-zA-Z0-9._-]/", "", $fileName);
 $destination = $uploadDir . $newFileName;
 
@@ -82,7 +82,7 @@ if (!move_uploaded_file($fileTmp, $destination)) {
     exit;
 }
 
-// ✅ Insert with seller_id
+
 $result = $product->addProduct($seller_id, $title, $category, $price, $stock, $description, $newFileName);
 
 if (!empty($result['success'])) {
@@ -94,3 +94,4 @@ if (!empty($result['success'])) {
 $_SESSION['error'] = $result['message'] ?? "Failed to add product.";
 header("Location: ../seller/add-product.php");
 exit;
+
