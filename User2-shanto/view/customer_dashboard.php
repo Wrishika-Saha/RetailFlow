@@ -14,7 +14,7 @@ $searchQuery = $_POST['search'] ?? '';
 </head>
 <body>
 
-<!-- Sidebar -->
+
 <aside id="sidebar">
     <h3>Customer Dashboard</h3>
     <nav class="sidebar-nav">
@@ -27,7 +27,7 @@ $searchQuery = $_POST['search'] ?? '';
     </nav>
 </aside>
 
-<!-- Main content -->
+
 <div id="dashboard-content">
 
     <div class="user-info">
@@ -38,7 +38,6 @@ $searchQuery = $_POST['search'] ?? '';
 
     <h2>All Products</h2>
 
-    <!-- Search -->
     <form method="POST" class="search-form">
         <input type="text" name="search" placeholder="Search products"
                value="<?php echo htmlspecialchars($searchQuery); ?>">
@@ -47,7 +46,7 @@ $searchQuery = $_POST['search'] ?? '';
 
     <a href="view_cart.php" class="view-cart-btn">View Cart</a>
 
-    <!-- Products -->
+    
     <div class="product-grid">
         <?php
         if (!empty($products)) {
