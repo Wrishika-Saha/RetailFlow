@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// ✅ Must login to view product details
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit;
