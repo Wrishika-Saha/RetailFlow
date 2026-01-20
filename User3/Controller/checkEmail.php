@@ -9,12 +9,14 @@ if ($email == "") {
 }
 
 $db = new DatabaseConnection();
+
 $conn = $db->openConnection();
+
 $result = $db->checkEmail($conn, "users", $email);
 
 if ($result->num_rows > 0) {
-    echo "❌ Email already used";
+    echo "Email already used";
 } else {
-    echo "✅ Email available";
+    echo "Email available";
 }
 $db->closeConnection($conn);
