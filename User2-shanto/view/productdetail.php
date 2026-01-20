@@ -1,7 +1,6 @@
 <?php
 include('../Model/product_detail.php'); 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
