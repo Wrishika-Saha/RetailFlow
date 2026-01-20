@@ -6,7 +6,7 @@ include '../Model/DatabaseConnection.php';
 $db = new DatabaseConnection();
 $conn = $db->openConnection();
 
-// Make sure seller is logged in
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $imageName = '';
 
-    // Handle image upload
     if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
         $imageTmpName = $_FILES['image']['tmp_name'];
         $imageName = time() . '_' . $_FILES['image']['name']; 
@@ -38,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Prepare and execute insert
+    
     $stmt = $conn->prepare("INSERT INTO products (seller_id, title, category, price, stock, description, image) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("issdiss", $seller_id, $title, $category, $price, $stock, $description, $imageName);
 
@@ -53,3 +52,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $db->closeConnection($conn);
 ?>
+
