@@ -1,6 +1,6 @@
-<!-- sellerdashboard.php -->
+
 <?php
-include('../Model/products_list.php'); // Fetch seller products
+include('../Model/products_list.php'); 
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ include('../Model/products_list.php'); // Fetch seller products
     <link rel="stylesheet" href="sellerdash.css">
 </head>
 <body>
-    <?php include('header.php'); ?> <!-- Optional header -->
+    <?php include('header.php'); ?> 
 
     <h1>Seller Dashboard</h1>
     <a class="btn" href="addproduct.php">+ Add Product</a>
@@ -56,7 +56,7 @@ include('../Model/products_list.php'); // Fetch seller products
         </table>
     </div>
 
-    <?php include('footer.php'); ?> <!-- Optional footer -->
+    <?php include('footer.php'); ?> 
 
 </body>
 </html>
