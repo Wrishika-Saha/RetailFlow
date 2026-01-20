@@ -6,7 +6,7 @@ $db = new DatabaseConnection();
 $conn = $db->openConnection();
 $seller_id = (int)($_SESSION['user']['id']); 
 
-// Fetch seller products
+
 $products = [];
 $productSql = "SELECT * FROM products WHERE seller_id = '$seller_id' ORDER BY created_at DESC";
 $productResult = $conn->query($productSql);
@@ -16,7 +16,7 @@ if ($productResult && $productResult->num_rows > 0) {
     }
 }
 
-// Fetch seller vouchers
+
 $vouchers = [];
 $voucherSql = "SELECT * FROM vouchers WHERE seller_id = '$seller_id' ORDER BY created_at DESC";
 $voucherResult = $conn->query($voucherSql);
@@ -28,3 +28,4 @@ if ($voucherResult && $voucherResult->num_rows > 0) {
 
 $db->closeConnection($conn);
 ?>
+
