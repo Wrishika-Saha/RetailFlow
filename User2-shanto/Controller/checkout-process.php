@@ -30,7 +30,7 @@ if (empty($phone) || empty($address) || empty($city) || empty($payment_method)) 
 
 $db = new Database();
 
-// Get cart items
+
 $cart = new Cart($db);
 $cart_items = $cart->getCartItems($_SESSION['user']['id']);
 
@@ -39,10 +39,10 @@ if (empty($cart_items)) {
     exit;
 }
 
-// Calculate total
+
 $total = $cart->getCartTotal($_SESSION['user']['id']);
 
-// Create order
+
 $order_model = new Order($db);
 $order_result = $order_model->createOrder($_SESSION['user']['id'], $total);
 
@@ -53,7 +53,7 @@ if (!$order_result['success']) {
 
 $order_id = $order_result['order_id'];
 
-// Add order items
+
 $items_to_add = [];
 foreach ($cart_items as $item) {
     $items_to_add[] = [
@@ -64,15 +64,15 @@ foreach ($cart_items as $item) {
 }
 $order_model->addOrderItems($order_id, $items_to_add);
 
-// Record payment
+
 $payment_model = new Payment($db);
 $payment_result = $payment_model->recordPayment($order_id, $_SESSION['user']['id'], $total, $payment_method);
 
 if ($payment_result['success']) {
-    // Clear cart
+    
     $cart->clearCart($_SESSION['user']['id']);
     
-    // Update order status to confirmed
+    
     $order_model->updateOrderStatus($order_id, 'processing');
     
     echo json_encode(['success' => true, 'order_id' => $order_id, 'message' => 'Order placed successfully']);
