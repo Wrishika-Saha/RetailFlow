@@ -12,6 +12,7 @@ if (!$email || !$password) {
 }
 
 $db = new DatabaseConnection();
+
 $conn = $db->openConnection();
 $result = $db->signin($conn, "users", $email);
 
@@ -22,7 +23,7 @@ if ($result->num_rows == 1) {
         $_SESSION["isLoggedIn"] = true;
         $_SESSION["user"] = $user;
 
-        // Redirect based on role
+        
         if ($user['role'] === 'admin') {
             header("Location: ../View/Admindashboard.php");
         } else {
