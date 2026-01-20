@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['success' => false, 'message' => 'Invalid request']);
     exit;
 }
-
 require_once '../Model/Database.php';
 require_once '../Model/Cart.php';
 require_once '../Model/Order.php';
