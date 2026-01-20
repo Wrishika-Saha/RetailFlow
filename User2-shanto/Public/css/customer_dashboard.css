@@ -1,4 +1,4 @@
-/* Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     font-family: Arial, sans-serif;
 }
 
-/* Layout */
+
 body {
     display: flex;
     min-height: 100vh;
@@ -14,7 +14,6 @@ body {
     color: #333;
 }
 
-/* Sidebar */
 #sidebar {
     width: 220px;
     background: #ffffff;
@@ -41,13 +40,13 @@ body {
     color: #0b5ed7;
 }
 
-/* Main Content */
+
 #dashboard-content {
     flex: 1;
     padding: 25px;
 }
 
-/* User Info */
+
 .user-info {
     display: flex;
     justify-content: flex-end;
@@ -70,13 +69,13 @@ body {
     text-decoration: none;
 }
 
-/* Headings */
+
 h2 {
     margin-bottom: 15px;
     color: #0b5ed7;
 }
 
-/* Search */
+
 .search-form {
     margin-bottom: 15px;
 }
@@ -92,7 +91,7 @@ h2 {
     border: none;
 }
 
-/* Cart Button */
+
 .view-cart-btn {
     display: inline-block;
     margin-bottom: 20px;
@@ -102,7 +101,7 @@ h2 {
     text-decoration: none;
 }
 
-/* Products */
+
 .product-grid {
     display: flex;
     flex-wrap: wrap;
