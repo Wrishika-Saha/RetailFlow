@@ -12,7 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $product_id = $_POST['product_id'] ?? 0;
+
 $title = $_POST['title'] ?? '';
+
 $category = $_POST['category'] ?? '';
 $price = $_POST['price'] ?? 0;
 $stock = $_POST['stock'] ?? 0;
@@ -24,12 +26,13 @@ if (!$product_id || empty($title) || empty($category) || $price <= 0 || $stock <
 }
 
 require_once '../Model/Database.php';
+
 require_once '../Model/Product.php';
 
 $db = new Database();
 $product_model = new Product($db);
 
-// Verify ownership
+
 $product = $product_model->getProductById($product_id);
 if (!$product || $product['seller_id'] != $_SESSION['user']['id']) {
     header("Location: ../index.php?page=seller-dashboard&error=Unauthorized");
@@ -38,7 +41,7 @@ if (!$product || $product['seller_id'] != $_SESSION['user']['id']) {
 
 $image_name = $product['image'];
 
-// Handle image upload if provided
+
 if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
     $image_file = $_FILES['image'];
     $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
@@ -54,7 +57,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
         exit;
     }
 
-    // Save new image
+    
     $image_name = time() . '_' . basename($image_file['name']);
     $upload_path = '../Uploads/' . $image_name;
 
@@ -63,7 +66,7 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
         exit;
     }
 
-    // Delete old image
+
     if (file_exists('../Uploads/' . $product['image'])) {
         unlink('../Uploads/' . $product['image']);
     }
@@ -77,3 +80,4 @@ if ($result['success']) {
     header("Location: ../index.php?page=edit-product&id=$product_id&error=" . urlencode($result['message']));
 }
 ?>
+
