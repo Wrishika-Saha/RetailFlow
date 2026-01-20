@@ -1,0 +1,84 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #f4f6f9;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Container */
+#payment-success {
+    width: 80%;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header */
+#payment-success h1 {
+    font-size: 36px;
+    color: #2ecc71;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Success Message */
+#payment-success p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-5px);
+}
+
+.btn:active {
+    background-color: #1f5f86;
+    transform: translateY(2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #payment-success {
+        width: 90%;
+        padding: 30px;
+    }
+
+    #payment-success h1 {
+        font-size: 28px;
+    }
+
+    #payment-success p {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 16px;
+    }
+}
