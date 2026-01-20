@@ -13,8 +13,6 @@ $searchQuery = $_POST['search'] ?? '';
     <link rel="stylesheet" href="customer_dashboard.css">
 </head>
 <body>
-
-
 <aside id="sidebar">
     <h3>Customer Dashboard</h3>
     <nav class="sidebar-nav">
