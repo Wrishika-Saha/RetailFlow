@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,14 +6,14 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Body */
+
 body {
     background-color: #f4f6f9;
     color: #333;
     font-size: 16px;
 }
 
-/* Container */
+
 #payment-success {
     width: 80%;
     margin: 50px auto;
@@ -24,7 +24,7 @@ body {
     text-align: center;
 }
 
-/* Header */
+
 #payment-success h1 {
     font-size: 36px;
     color: #2ecc71;
@@ -32,14 +32,14 @@ body {
     font-weight: bold;
 }
 
-/* Success Message */
+
 #payment-success p {
     font-size: 18px;
     color: #555;
     margin-bottom: 30px;
 }
 
-/* Button Styles */
+
 .btn {
     display: inline-block;
     background-color: #3498db;
