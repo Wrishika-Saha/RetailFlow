@@ -1,10 +1,10 @@
 <?php
-include 'DatabaseConnection.php'; // Include your existing DB class
+include 'DatabaseConnection.php'; 
 
 $db = new DatabaseConnection();
 $conn = $db->openConnection();
 
-// Optional: handle search
+
 $searchQuery = $_POST['search'] ?? '';
 
 if ($searchQuery) {
