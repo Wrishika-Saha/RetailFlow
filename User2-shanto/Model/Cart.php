@@ -7,7 +7,7 @@ class Cart {
         $this->conn = $database->connect();
     }
 
-    
+
     public function addToCart($user_id, $product_id, $quantity) {
         
         $stmt = $this->conn->prepare("SELECT id, quantity FROM " . $this->table . " WHERE user_id = ? AND product_id = ?");
