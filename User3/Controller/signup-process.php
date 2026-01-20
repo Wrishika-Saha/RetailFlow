@@ -15,7 +15,7 @@ $password = $_POST['password'] ?? '';
 $confirm_password = $_POST['confirm_password'] ?? '';
 $role = $_POST['role'] ?? 'customer';
 
-// Validate
+
 if (empty($name) || empty($email) || empty($password) || empty($confirm_password)) {
     header("Location: ../View/signup.php?error=All fields are required");
     exit;
@@ -41,3 +41,4 @@ if ($result['success']) {
     header("Location: ../View/signup.php?error=" . urlencode($result['message']));
 }
 ?>
+
