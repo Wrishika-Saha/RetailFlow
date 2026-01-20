@@ -19,22 +19,25 @@ if (!$product_id) {
 }
 
 require_once '../Model/Database.php';
+
 require_once '../Model/Product.php';
 
 $db = new Database();
 $product_model = new Product($db);
 
-// Verify ownership
+
 $product = $product_model->getProductById($product_id);
+
 if (!$product || $product['seller_id'] != $_SESSION['user']['id']) {
     header("Location: ../index.php?page=seller-dashboard&error=Unauthorized");
+    
     exit;
 }
 
 $result = $product_model->deleteProduct($product_id, $_SESSION['user']['id']);
 
 if ($result['success']) {
-    // Delete image file
+   
     if (file_exists('../Uploads/' . $product['image'])) {
         unlink('../Uploads/' . $product['image']);
     }
