@@ -3,7 +3,7 @@ session_start();
 
 include '../Model/DatabaseConnection.php';
 
-// Check seller login
+
 if (!isset($_SESSION['isLoggedIn']) || $_SESSION['user']['role'] !== 'seller') {
     header("Location: ../View/login.php");
     exit();
@@ -12,7 +12,7 @@ if (!isset($_SESSION['isLoggedIn']) || $_SESSION['user']['role'] !== 'seller') {
 $db = new DatabaseConnection();
 $conn = $db->openConnection();
 
-// Check voucher ID
+
 if (!isset($_GET['id'])) {
     echo "No voucher ID provided.";
     exit();
@@ -21,7 +21,7 @@ if (!isset($_GET['id'])) {
 $voucher_id = intval($_GET['id']);
 $seller_id  = $_SESSION['user']['id'];
 
-// Fetch voucher (only seller's own voucher)
+
 $stmt = $conn->prepare(
     "SELECT * FROM vouchers WHERE id = ? AND seller_id = ?"
 );
@@ -36,7 +36,7 @@ if (!$voucher) {
     exit();
 }
 
-// Update voucher
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $code        = $_POST['code'];
@@ -69,3 +69,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $db->closeConnection($conn);
 ?>
+
