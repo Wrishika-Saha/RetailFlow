@@ -1,20 +1,14 @@
-<?php
-include "../Model/DatabaseConnection.php";
+function findExistingEmail() {
+    var Email = document.getElementById("email").value;
+    var xhttp = new XMLHttpRequest();
 
-$email = $_POST["Email"] ?? "";
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("erroremail").innerHTML = this.responseText;
+        }
+    };
 
-if ($email == "") {
-    echo "Email required";
-    exit;
+    xhttp.open("POST", "../Controller/checkEmail.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("Email=" + Email);
 }
-
-$db = new DatabaseConnection();
-$conn = $db->openConnection();
-$result = $db->checkEmail($conn, "users", $email);
-
-if ($result->num_rows > 0) {
-    echo "❌ Email already used";
-} else {
-    echo "✅ Email available";
-}
-$db->closeConnection($conn);
