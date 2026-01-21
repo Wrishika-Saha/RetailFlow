@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-
+/*
 $user_id = $_SESSION['user_id'] ?? $_SESSION['user']['id'] ?? null;
 if (!$user_id) {
     echo "<script>alert('You must log in first.'); window.location='../View/login.php';</script>";
     exit();
-}
+}*/
 
 
 if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
@@ -28,7 +28,7 @@ $status = 'pending';
 $stmt = $conn->prepare(
     "INSERT INTO orders (user_id, total_amount, status) VALUES (?, ?, ?)"
 );
-$stmt->bind_param("ids", $user_id, $totalPrice, $status);
+$stmt->bind_param("ids", $user_id, $totalPrice, $status); 
 $stmt->execute();
 
 

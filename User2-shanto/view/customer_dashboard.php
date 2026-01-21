@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+include('../Model/customer_dashboard.php');
+
 $user = $_SESSION['user'] ?? null;
 $name = $user['name'] ?? 'Customer';
 $profile = $user['profile_picture'] ?? 'default.png';
@@ -9,18 +12,19 @@ $searchQuery = $_POST['search'] ?? '';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Customer Dashboard - Market Mingle</title>
+    <title>Customer Dashboard - Retailflow</title>
     <link rel="stylesheet" href="customer_dashboard.css">
 </head>
 <body>
+
+
 <aside id="sidebar">
     <h3>Customer Dashboard</h3>
     <nav class="sidebar-nav">
         <ul>
             <li><a href="customer_dashboard.php">Dashboard</a></li>
             <li><a href="view_cart.php">My Cart</a></li>
-            <li><a href="orders_list.php">My Orders</a></li>
-            <li><a href="settings.php">Settings</a></li>
+            <li><a href="order_customer.php">My Orders</a></li>
         </ul>
     </nav>
 </aside>
@@ -36,6 +40,7 @@ $searchQuery = $_POST['search'] ?? '';
 
     <h2>All Products</h2>
 
+    
     <form method="POST" class="search-form">
         <input type="text" name="search" placeholder="Search products"
                value="<?php echo htmlspecialchars($searchQuery); ?>">
@@ -59,7 +64,7 @@ $searchQuery = $_POST['search'] ?? '';
                     <h3>{$product['title']}</h3>
                     <p class='price'>BDT {$product['price']}</p>
                     <p>{$product['description']}</p>
-                    <a href='product_detail.php?id={$product['id']}' class='view-details-btn'>
+                    <a href='view_details.php?id={$product['id']}' class='view-details-btn'>
                         View Details
                     </a>
                 </div>";

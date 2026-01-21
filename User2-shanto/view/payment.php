@@ -1,13 +1,12 @@
 <?php
 include('../Model/payment.php'); 
-?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment - Market Mingle</title>
+    <title>Payment - RetailFlow</title>
     <link rel="stylesheet" href="payment.css">
 </head>
 <body>
@@ -19,7 +18,6 @@ include('../Model/payment.php');
             <h1>Payment for Order #<?php echo htmlspecialchars($order['id']); ?></h1>
             <p>Total Price: BDT <?php echo number_format($order['total_amount'], 2); ?></p>
 
-           
             <form action="../Model/process_payment.php" method="POST">
                 <h3>Select Payment Method</h3>
                 <select name="payment_method" required>
