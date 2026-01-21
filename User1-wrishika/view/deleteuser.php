@@ -1,11 +1,9 @@
 <?php
-// View/deleteuser.php
+
 session_start();
 include('../Model/DatabaseConnection.php');
 
-/* =========================
-   Admin Session Check
-========================= */
+
 if (!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true) {
     header("Location: login.php");
     exit();
@@ -15,9 +13,8 @@ if (!isset($_SESSION['user']) || ($_SESSION['user']['role'] ?? '') !== 'admin') 
     die("Access denied. Admin only.");
 }
 
-/* =========================
-   Validate delete_id
-========================= */
+
+
 if (!isset($_GET['delete_id'])) {
     header("Location: manage_users.php?error=missing_id");
     exit();
@@ -29,24 +26,18 @@ if ($delete_id <= 0) {
     exit();
 }
 
-/* =========================
-   Prevent deleting yourself (optional but recommended)
-========================= */
+
 $myId = (int)($_SESSION['user']['id'] ?? 0);
 if ($myId === $delete_id) {
     header("Location: manage_users.php?error=cannot_delete_self");
     exit();
 }
 
-/* =========================
-   DB Connect
-========================= */
+
 $db = new DatabaseConnection();
 $conn = $db->openConnection();
 
-/* =========================
-   Get user profile picture (so we can delete file)
-========================= */
+
 $stmt = $conn->prepare("SELECT profile_picture FROM users WHERE id = ?");
 $stmt->bind_param("i", $delete_id);
 $stmt->execute();
@@ -60,16 +51,14 @@ if (!$userRow) {
     exit();
 }
 
-/* =========================
-   Delete user
-========================= */
+
 $del = $conn->prepare("DELETE FROM users WHERE id = ?");
 $del->bind_param("i", $delete_id);
 
 if ($del->execute()) {
     $del->close();
 
-    // Delete profile image file (optional)
+    
     $pic = $userRow['profile_picture'] ?? '';
     $uploadDir = "../uploads/";
 

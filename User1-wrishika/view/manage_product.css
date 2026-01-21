@@ -1,4 +1,4 @@
-/* ===== Reset ===== */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ body {
     min-height: 100vh;
 }
 
-/* ===== Sidebar ===== */
+
 aside {
     width: 240px;
     background: #1f2937;
@@ -52,7 +52,7 @@ aside nav ul li a.active {
     color: #ffffff;
 }
 
-/* ===== Logout ===== */
+
 body > a[href*="logout"] {
     position: fixed;
     top: 16px;
@@ -72,7 +72,7 @@ body > a[href*="logout"]:hover {
     background: #b91c1c;
 }
 
-/* ===== Main Section ===== */
+
 section {
     flex: 1;
     padding: 30px;
@@ -84,7 +84,7 @@ section h1 {
     font-weight: 800;
 }
 
-/* ===== Search Form ===== */
+
 form {
     display: flex;
     gap: 10px;
@@ -120,7 +120,7 @@ form button:hover {
     background: #1d4ed8;
 }
 
-/* ===== Table ===== */
+
 table {
     width: 100%;
     background: #fff;
@@ -152,7 +152,7 @@ tbody tr:hover {
     background: #f9fafb;
 }
 
-/* ===== Product Image ===== */
+
 .prod-img {
     width: 80px;
     height: 80px;
@@ -162,7 +162,7 @@ tbody tr:hover {
     background: #f3f4f6;
 }
 
-/* ===== Action Buttons ===== */
+
 .btn-edit,
 .btn-delete {
     display: inline-block;
@@ -192,7 +192,7 @@ tbody tr:hover {
     background: #b91c1c;
 }
 
-/* ===== Responsive ===== */
+
 @media (max-width: 900px) {
     aside {
         display: none;

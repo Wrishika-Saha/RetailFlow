@@ -1,6 +1,4 @@
-/* View/manage_payments.css */
 
-/* ===== Reset ===== */
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +12,7 @@ body {
   min-height: 100vh;
 }
 
-/* ===== Logout Button ===== */
+
 .logout-btn {
   position: fixed;
   top: 16px;
@@ -34,7 +32,7 @@ body {
   background: #b91c1c;
 }
 
-/* ===== Sidebar ===== */
+
 #sidebar {
   position: fixed;
   top: 0;
@@ -78,9 +76,9 @@ body {
   color: #fff;
 }
 
-/* ===== Main Content ===== */
+
 #manage-payments {
-  margin-left: 260px; /* sidebar width */
+  margin-left: 260px; 
   padding: 30px;
 }
 
@@ -98,7 +96,7 @@ body {
   margin-bottom: 16px;
 }
 
-/* ===== Table ===== */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -127,7 +125,7 @@ tbody tr:hover {
   background: #f9fafb;
 }
 
-/* ===== Delete Button ===== */
+
 .btn-delete {
   display: inline-block;
   padding: 8px 10px;
@@ -144,7 +142,7 @@ tbody tr:hover {
   background: #dc2626;
 }
 
-/* ===== Responsive ===== */
+
 @media (max-width: 900px) {
   #sidebar {
     position: relative;

@@ -1,4 +1,4 @@
-/* ===== Reset & Base ===== */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,7 +11,7 @@ body {
     color: #333;
 }
 
-/* ===== Layout ===== */
+/
 #admin-dashboard {
     min-height: 100vh;
     display: flex;
@@ -22,7 +22,7 @@ body {
     width: 100%;
 }
 
-/* ===== Sidebar ===== */
+
 #sidebar {
     width: 240px;
     background: #1f2937;
@@ -59,7 +59,7 @@ body {
     color: #fff;
 }
 
-/* ===== Logout Button ===== */
+
 .logout-btn {
     position: fixed;
     top: 15px;
@@ -76,7 +76,7 @@ body {
     background: #b91c1c;
 }
 
-/* ===== Main Content ===== */
+
 #edit-product {
     flex: 1;
     padding: 30px;
@@ -96,7 +96,7 @@ body {
     color: #111827;
 }
 
-/* ===== Form ===== */
+
 form input[type="text"],
 form input[type="number"],
 form textarea,
@@ -120,14 +120,14 @@ form textarea:focus {
     border-color: #2563eb;
 }
 
-/* ===== Image Preview ===== */
+
 form img {
     margin-top: 8px;
     border-radius: 6px;
     border: 1px solid #ddd;
 }
 
-/* ===== Buttons ===== */
+
 form button {
     width: 100%;
     padding: 12px;
@@ -144,7 +144,7 @@ form button:hover {
     background: #1d4ed8;
 }
 
-/* ===== Error Message ===== */
+
 .error-box {
     background: #fee2e2;
     border: 1px solid #fecaca;
@@ -154,7 +154,7 @@ form button:hover {
     margin-bottom: 15px;
 }
 
-/* ===== Responsive ===== */
+
 @media (max-width: 768px) {
     #sidebar {
         display: none;
