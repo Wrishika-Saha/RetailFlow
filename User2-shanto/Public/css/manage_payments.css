@@ -1,4 +1,4 @@
-/* ===== Reset & Base ===== */
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +13,7 @@ body {
   display: flex;
 }
 
-/* ===== Logout Button ===== */
+
 .logout-btn {
   position: fixed;
   top: 16px;
@@ -25,7 +25,7 @@ body {
   font-weight: bold;
 }
 
-/* ===== Sidebar ===== */
+
 #sidebar {
   position: fixed;
   top: 0;
@@ -63,7 +63,7 @@ body {
   color: #fff;
 }
 
-/* ===== Manage Payments Container ===== */
+
 #manage-payments {
   margin-left: 260px;
   padding: 20px;
@@ -79,7 +79,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* ===== Table Styling ===== */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -101,7 +101,7 @@ tbody tr:hover {
   background: #eee;
 }
 
-/* ===== Action Buttons ===== */
+
 .btn-edit {
   background: blue;
   color: #fff;
@@ -116,7 +116,7 @@ tbody tr:hover {
   text-decoration: none;
 }
 
-/* ===== Responsive ===== */
+
 @media (max-width: 900px) {
   #sidebar {
     position: relative;

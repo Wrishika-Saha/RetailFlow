@@ -1,4 +1,4 @@
-/* General styles */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
@@ -12,7 +12,7 @@ body {
     padding: 50px 0;
 }
 
-/* Product Detail Section */
+
 #product-detail {
     display: flex;
     justify-content: center;
@@ -20,7 +20,7 @@ body {
     margin-top: 50px;
 }
 
-/* Product Card */
+
 .product-card {
     background-color: #fff;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -79,7 +79,7 @@ body {
     background-color: #c0392b;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .product-card {
         width: 90%;
@@ -93,7 +93,6 @@ body {
 }
 
 
-/* Logout Button */
 .logout-btn {
     position: absolute;
     top: 20px;
@@ -108,11 +107,11 @@ body {
 }
 
 .logout-btn:hover {
-    background-color: #c0392b; /* Darker shade on hover */
+    background-color: #c0392b; 
 }
 
 
-/* Logout Button */
+
 .back-btn {
     position: absolute;
     top: 20px;
@@ -127,5 +126,5 @@ body {
 }
 
 .back-btn:hover {
-    background-color: #c0392b; /* Darker shade on hover */
+    background-color: #c0392b; 
 }
