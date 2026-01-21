@@ -2,7 +2,7 @@
 session_start();
 include '../Model/DatabaseConnection.php';
 
-// ✅ Login check
+
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit;
@@ -11,9 +11,9 @@ if (!isset($_SESSION['user'])) {
 $user = $_SESSION['user'];
 $user_id = (int)($user['id'] ?? 0);
 
-// ✅ Optional: role check (only customers)
+
 if (($user['role'] ?? '') !== 'customer') {
-    // if admin/seller tries to access, redirect (change as you want)
+    
     header("Location: login.php");
     exit;
 }
@@ -21,7 +21,7 @@ if (($user['role'] ?? '') !== 'customer') {
 $db = new DatabaseConnection();
 $conn = $db->openConnection();
 
-// ✅ Fetch all orders for this customer (based on your table columns)
+
 $stmt = $conn->prepare("
     SELECT id, user_id, total_amount, status, payment_method, order_date
     FROM orders
@@ -38,7 +38,7 @@ while ($row = $result->fetch_assoc()) {
 }
 $stmt->close();
 
-// ✅ Fetch items for each order (order_items + products)
+
 function getOrderItems($conn, $order_id) {
     $stmt = $conn->prepare("
         SELECT 

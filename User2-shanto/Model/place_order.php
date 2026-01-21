@@ -1,12 +1,6 @@
 <?php
 session_start();
 
-/*
-$user_id = $_SESSION['user_id'] ?? $_SESSION['user']['id'] ?? null;
-if (!$user_id) {
-    echo "<script>alert('You must log in first.'); window.location='../View/login.php';</script>";
-    exit();
-}*/
 
 
 if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
