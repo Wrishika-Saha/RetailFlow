@@ -1,7 +1,5 @@
 <?php
-/**
- * User Model - Handle user authentication and profile management
- */
+
 
 class User {
     private $conn;
@@ -11,9 +9,8 @@ class User {
         $this->conn = $database->connect();
     }
 
-    // Register user
     public function register($name, $email, $password, $role = 'customer') {
-        // Check if email already exists
+       
         $stmt = $this->conn->prepare("SELECT id FROM " . $this->table . " WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -24,10 +21,10 @@ class User {
         }
         $stmt->close();
 
-        // Hash password
+       
         $hashed_password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
 
-        // Insert user
+        
         $stmt = $this->conn->prepare("INSERT INTO " . $this->table . " (name, email, password, role, created_at) VALUES (?, ?, ?, ?, NOW())");
         $stmt->bind_param("ssss", $name, $email, $hashed_password, $role);
 
@@ -40,7 +37,7 @@ class User {
         }
     }
 
-    // Login user
+    
     public function login($email, $password) {
         $stmt = $this->conn->prepare("SELECT id, name, email, password, role FROM " . $this->table . " WHERE email = ?");
         $stmt->bind_param("s", $email);
@@ -60,7 +57,7 @@ class User {
         return ['success' => false, 'message' => 'Invalid email or password'];
     }
 
-    // Get user by ID
+    
     public function getUserById($id) {
         $stmt = $this->conn->prepare("SELECT id, name, email, role FROM " . $this->table . " WHERE id = ?");
         $stmt->bind_param("i", $id);
@@ -77,7 +74,7 @@ class User {
         return null;
     }
 
-    // Update user profile
+   
     public function updateProfile($id, $name, $email) {
         $stmt = $this->conn->prepare("UPDATE " . $this->table . " SET name = ?, email = ? WHERE id = ?");
         $stmt->bind_param("ssi", $name, $email, $id);
@@ -91,7 +88,7 @@ class User {
         }
     }
 
-    // Get all users (for admin)
+    
     public function getAllUsers() {
         $query = "SELECT id, name, email, role FROM " . $this->table;
         $result = $this->conn->query($query);
