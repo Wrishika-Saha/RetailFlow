@@ -1,5 +1,5 @@
 <?php
-include('../Model/view_cart.php'); // Model handles fetching cart items
+include('../Model/view_cart.php'); 
 ?>
 
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
 <?php
-include('../Model/settings.php'); // loads $siteName, $currency, $theme + handles POST
+include('../Model/settings.php'); 
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ include('../Model/settings.php'); // loads $siteName, $currency, $theme + handle
 
 <a href="../Controller/logout.php" class="logout-btn">Logout</a>
 
-<!-- Sidebar -->
+
 <aside id="sidebar">
     <h3>Admin Dashboard</h3>
     <nav class="sidebar-nav">

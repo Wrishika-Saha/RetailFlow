@@ -14,7 +14,7 @@
 <section id="signup-section">
     <h2>Create Your Account</h2>
 
-    <!-- PHP Messages -->
+    
     <?php
     if (isset($_SESSION["error"]) && !empty($_SESSION["error"])) {
         echo '<div class="error-msg">' . $_SESSION["error"] . '</div>';

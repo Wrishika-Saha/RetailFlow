@@ -1,5 +1,5 @@
 <?php
-include('../Model/payment_success.php'); // Your model handles backend logic
+include('../Model/payment_success.php'); 
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ include('../Model/payment_success.php'); // Your model handles backend logic
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Success - RetailFlow</title>
-    <link rel="stylesheet" href="../View/payment_success.css"> <!-- Your CSS -->
+    <link rel="stylesheet" href="../View/payment_success.css"> 
 </head>
 <body>
 
