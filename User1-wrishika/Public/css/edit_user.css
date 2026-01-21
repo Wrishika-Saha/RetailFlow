@@ -1,0 +1,111 @@
+/* ===== Container ===== */
+.edit-wrap {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+/* ===== Card ===== */
+.edit-card {
+    max-width: 700px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.edit-card h1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* ===== Form Groups ===== */
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    background: #fff;
+}
+
+input:focus, select:focus {
+    border-color: #2563eb;
+}
+
+/* ===== Buttons ===== */
+.btn-save {
+    display: inline-block;
+    padding: 8px 12px;
+    border: none;
+    background: blue;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-save:hover {
+    background: darkblue;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 8px 12px;
+    text-decoration: none;
+    background: #111;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* ===== Messages ===== */
+.msg {
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.msg.err {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fccaca;
+}
+
+.msg.ok {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+/* ===== Profile Preview ===== */
+.profile-preview {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.profile-preview img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ccc;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .edit-wrap {
+        margin-left: 0;
+        padding: 15px;
+    }
+}

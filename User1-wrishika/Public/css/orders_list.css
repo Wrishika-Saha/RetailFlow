@@ -1,77 +1,76 @@
+/* ===== Reset ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 body {
     background: #f4f6f9;
-    color: #111827;
+    color: #111;
     display: flex;
     min-height: 100vh;
 }
 
+/* ===== Logout Button ===== */
 .logout-btn {
     position: fixed;
     top: 16px;
     right: 20px;
     text-decoration: none;
-    background: #dc2626;
+    background: red;
     color: #fff;
-    padding: 10px 14px;
-    border-radius: 10px;
-    font-weight: 700;
+    padding: 8px 12px;
+    font-weight: bold;
     font-size: 14px;
-    transition: 0.2s ease;
-    z-index: 999;
 }
 
 .logout-btn:hover {
-    background: #b91c1c;
+    background: darkred;
 }
 
+/* ===== Sidebar ===== */
 #sidebar {
     width: 240px;
-    background: #1f2937;
-    padding: 22px 18px;
+    background: #333;
+    padding: 20px;
     color: #fff;
 }
 
 #sidebar h3 {
     text-align: center;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     font-size: 20px;
-    font-weight: 800;
+    font-weight: bold;
 }
 
 .sidebar-nav ul {
     list-style: none;
 }
 
-.sidebar-nav ul li {
-    margin-bottom: 12px;
+.sidebar-nav li {
+    margin-bottom: 10px;
 }
 
-.sidebar-nav ul li a {
+.sidebar-nav a {
     display: block;
-    padding: 10px 12px;
+    padding: 8px 10px;
     text-decoration: none;
-    color: #d1d5db;
-    border-radius: 8px;
-    transition: 0.2s ease;
+    color: #ccc;
     font-size: 14px;
 }
 
-.sidebar-nav ul li a:hover,
-.sidebar-nav ul li a.active {
-    background: #374151;
-    color: #ffffff;
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: #555;
+    color: #fff;
 }
 
+/* ===== Main Section ===== */
 #manage-orders {
     flex: 1;
-    padding: 30px;
+    padding: 20px;
 }
 
 .container {
@@ -80,73 +79,59 @@ body {
 }
 
 .container h1 {
-    font-size: 26px;
-    font-weight: 800;
-    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 16px;
 }
 
+/* ===== Table ===== */
 table {
     width: 100%;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     border-collapse: collapse;
+    background: #fff;
 }
 
 thead {
-    background: #111827;
+    background: #111;
     color: #fff;
 }
 
-thead th {
-    text-align: left;
-    padding: 12px 14px;
-    font-size: 14px;
-    white-space: nowrap;
-}
-
+thead th,
 tbody td {
-    padding: 12px 14px;
-    border-bottom: 1px solid #e5e7eb;
+    padding: 10px;
+    border: 1px solid #ccc;
     font-size: 14px;
-    vertical-align: middle;
 }
 
 tbody tr:hover {
-    background: #f9fafb;
+    background: #eee;
 }
 
+/* ===== Status Dropdown & Delete Button ===== */
 select {
-    padding: 8px 10px;
-    border-radius: 10px;
-    border: 1px solid #d1d5db;
-    outline: none;
+    padding: 6px 8px;
     font-size: 13px;
-    cursor: pointer;
+    border: 1px solid #ccc;
     background: #fff;
-}
-
-select:focus {
-    border-color: #2563eb;
+    cursor: pointer;
 }
 
 .btn-delete {
-    display: inline-block;
-    padding: 8px 10px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 700;
+    padding: 6px 8px;
     font-size: 13px;
-    background: #dc2626;
+    font-weight: bold;
+    background: red;
     color: #fff;
-    transition: 0.2s ease;
+    text-decoration: none;
+    border: 1px solid #111;
+    cursor: pointer;
 }
 
 .btn-delete:hover {
-    background: #b91c1c;
+    background: darkred;
 }
 
+/* ===== Responsive ===== */
 @media (max-width: 1000px) {
     #sidebar {
         display: none;
@@ -157,7 +142,7 @@ select:focus {
     }
 
     #manage-orders {
-        padding: 18px;
+        padding: 15px;
     }
 
     table {

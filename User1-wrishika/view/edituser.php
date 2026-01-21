@@ -1,88 +1,21 @@
 <?php include('../Model/edituser.php'); ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit User</title>
-    <link rel="stylesheet" href="manage_users.css"> 
-    <style>
-        /* small page-specific styling */
-        .edit-wrap{
-            margin-left:260px;
-            padding:30px;
-        }
-        .edit-card{
-            max-width:700px;
-            background:#fff;
-            border-radius:16px;
-            padding:22px;
-            box-shadow:0 8px 22px rgba(0,0,0,0.08);
-        }
-        .edit-card h1{font-size:22px;font-weight:900;margin-bottom:14px;}
-        .form-group{margin-bottom:12px;}
-        label{display:block;font-weight:800;margin-bottom:6px;}
-        input, select{
-            width:100%;
-            padding:10px 12px;
-            border:1px solid #e5e7eb;
-            border-radius:10px;
-            outline:none;
-        }
-        input:focus, select:focus{border-color:#2563eb;}
-        .btn-save{
-            display:inline-block;
-            padding:10px 14px;
-            border:none;
-            border-radius:10px;
-            background:#2563eb;
-            color:#fff;
-            font-weight:900;
-            cursor:pointer;
-        }
-        .btn-save:hover{background:#1d4ed8;}
-        .btn-back{
-            display:inline-block;
-            margin-left:10px;
-            text-decoration:none;
-            padding:10px 14px;
-            border-radius:10px;
-            background:#111827;
-            color:#fff;
-            font-weight:900;
-        }
-        .msg{
-            padding:10px 12px;
-            border-radius:10px;
-            margin-bottom:12px;
-            font-weight:800;
-        }
-        .msg.err{background:#fee2e2;color:#991b1b;border:1px solid #fecaca;}
-        .msg.ok{background:#dcfce7;color:#166534;border:1px solid #bbf7d0;}
-        .profile-preview{
-            display:flex;
-            gap:12px;
-            align-items:center;
-            margin:10px 0 14px;
-        }
-        .profile-preview img{
-            width:64px;height:64px;border-radius:50%;
-            object-fit:cover;border:2px solid #e5e7eb;
-        }
 
-        @media(max-width:900px){
-            .edit-wrap{margin-left:0;padding:16px;}
-        }
-    </style>
+    <link rel="stylesheet" href="manage_users.css">
+    <link rel="stylesheet" href="edit_user.css">
+    <link rel="stylesheet" href="admin_layout.css">
 </head>
+
 <body>
 
 <a href="../Controller/logout.php" class="logout-btn">Logout</a>
 
-<!-- Sidebar (same as Manage Users page) -->
 <aside id="sidebar">
     <h3>Admin Dashboard</h3>
     <nav class="sidebar-nav">
@@ -101,7 +34,7 @@
     <div class="edit-card">
         <h1>Edit User (ID: <?= (int)$editUser['id'] ?>)</h1>
 
-        <?php if ($error): ?>
+        <?php if (!empty($error)): ?>
             <div class="msg err"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
@@ -113,8 +46,8 @@
             ?>
             <img src="<?= htmlspecialchars($path) ?>" alt="Profile">
             <div>
-                <div style="font-weight:900;"><?= htmlspecialchars($editUser['name']) ?></div>
-                <div style="color:#6b7280;font-size:13px;"><?= htmlspecialchars($editUser['email']) ?></div>
+                <div class="name"><?= htmlspecialchars($editUser['name']) ?></div>
+                <div class="email"><?= htmlspecialchars($editUser['email']) ?></div>
             </div>
         </div>
 
@@ -132,19 +65,19 @@
             <div class="form-group">
                 <label>Role</label>
                 <select name="role" required>
-                    <option value="customer" <?= $editUser['role'] === 'customer' ? 'selected' : '' ?>>customer</option>
-                    <option value="seller"   <?= $editUser['role'] === 'seller' ? 'selected' : '' ?>>seller</option>
-                    <option value="admin"    <?= $editUser['role'] === 'admin' ? 'selected' : '' ?>>admin</option>
+                    <option value="customer" <?= $editUser['role']==='customer'?'selected':'' ?>>Customer</option>
+                    <option value="seller" <?= $editUser['role']==='seller'?'selected':'' ?>>Seller</option>
+                    <option value="admin" <?= $editUser['role']==='admin'?'selected':'' ?>>Admin</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label>New Password (leave blank to keep unchanged)</label>
-                <input type="password" name="password" placeholder="Enter new password (optional)">
+                <label>New Password</label>
+                <input type="password" name="password" placeholder="Leave blank to keep unchanged">
             </div>
 
             <div class="form-group">
-                <label>Profile Picture (optional)</label>
+                <label>Profile Picture</label>
                 <input type="file" name="profile_picture" accept="image/*">
             </div>
 
