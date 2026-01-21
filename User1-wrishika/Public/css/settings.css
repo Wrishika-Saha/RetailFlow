@@ -1,6 +1,3 @@
-/* View/manage_users.css */
-
-/* ===== Reset ===== */
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +11,6 @@ body {
   min-height: 100vh;
 }
 
-/* ===== Logout Button ===== */
 .logout-btn {
   position: fixed;
   top: 16px;
@@ -34,7 +30,6 @@ body {
   background: #b91c1c;
 }
 
-/* ===== Sidebar ===== */
 #sidebar {
   position: fixed;
   top: 0;
@@ -73,90 +68,88 @@ body {
   transition: 0.2s ease;
 }
 
-.sidebar-nav a:hover {
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
   background: #374151;
   color: #fff;
 }
 
-/* ===== Main Area ===== */
-#manage-users {
+#settings {
   margin-left: 260px;
   padding: 30px;
 }
 
-#manage-users .container {
-  max-width: 1050px;
+#settings .container {
+  max-width: 750px;
   background: #ffffff;
   border-radius: 16px;
-  padding: 22px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  padding: 26px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
 }
 
-#manage-users h1 {
-  font-size: 24px;
+#settings .container h1 {
+  font-size: 26px;
   font-weight: 900;
   margin-bottom: 16px;
 }
 
-/* ===== Table ===== */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  overflow: hidden;
+.alert-success {
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  color: #166534;
+  padding: 12px 14px;
   border-radius: 12px;
-}
-
-thead th {
-  background: #111827;
-  color: #ffffff;
-  text-align: left;
-  padding: 12px 12px;
-  font-size: 14px;
   font-weight: 800;
+  margin-bottom: 16px;
 }
 
-tbody td {
-  padding: 12px 12px;
+#settings form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 6px;
   font-size: 14px;
-  border-bottom: 1px solid #e5e7eb;
   color: #111827;
 }
 
-tbody tr:hover {
-  background: #f9fafb;
+.form-group input {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+  background: #fff;
 }
 
-/* ===== Buttons ===== */
-.btn-edit,
-.btn-delete {
-  display: inline-block;
-  padding: 8px 10px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 13px;
+.form-group input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.btn-save {
+  margin-top: 6px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 14px;
+  cursor: pointer;
   transition: 0.2s ease;
 }
 
-.btn-edit {
-  background: #2563eb;
-  color: #fff;
-}
-
-.btn-edit:hover {
+.btn-save:hover {
   background: #1d4ed8;
 }
 
-.btn-delete {
-  background: #ef4444;
-  color: #fff;
-}
-
-.btn-delete:hover {
-  background: #dc2626;
-}
-
-/* ===== Responsive ===== */
 @media (max-width: 900px) {
   #sidebar {
     position: relative;
@@ -164,23 +157,13 @@ tbody tr:hover {
     height: auto;
   }
 
-  #manage-users {
+  #settings {
     margin-left: 0;
-    padding: 16px;
-  }
-
-  #manage-users .container {
     padding: 16px;
   }
 
   .logout-btn {
     top: 10px;
     right: 10px;
-  }
-
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
   }
 }
